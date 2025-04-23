@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+[data-theme="default"] {
+  --color-primary: #d4e05e;
+  --primary-rgb: 212, 224, 94;
+}
+
+@theme {
+  --font-underdog-regular: "Underdog", system-ui;
+  --color-primary: var(--color-primary);
+}
+
+body {
+  @apply bg-[url('/assets/images/bg-images/body-bg.jpg')] bg-cover bg-no-repeat min-h-screen;
+}
+
+body,
+body * {
+  @apply font-underdog-regular font-normal;
+}
+
+.dashboard-title-container {
+  @apply bg-[url('/assets/images/bg-images/dashboard-title-shadow.png')];
+}
