@@ -29,7 +29,7 @@ const Dashboard = ({ itemsArray }: DashboardProps) => {
   return (
     <section>
       <section className="mb-10">
-        <div className="flex items-start justify-center gap-28 mb-6 px-6">
+        <div className="flex items-start justify-center gap-32 mb-3 px-18">
           {itemsArray.map((item, indx) => (
             <Link
               onMouseEnter={() => {
@@ -74,7 +74,7 @@ const Dashboard = ({ itemsArray }: DashboardProps) => {
                 <div className="w-[60px] h-1 bg-primary rounded-[2px] shadow-[0px_0px_5px_1px_rgba(0,0,0,0.75)] mb-3"></div>
                 <div className="w-[25px] h-1 bg-primary rounded-[2px] shadow-[0px_0px_5px_1px_rgba(0,0,0,0.75)]"></div>
               </div>
-              <h3 className="text-center mb-0 mx-2 text-3xl text-white relative top-[15px] text-shadow-[0px_1px_5px_rgb(0,0,0)]">
+              <h3 className="text-center mb-0 mx-5 text-[26px] text-white relative top-[15px] text-shadow-[0px_1px_5px_rgb(0,0,0)]">
                 {activeItem?.title ?? "N/A"}
               </h3>
               <div className="flex flex-col items-center rotate-[46deg]">
@@ -82,7 +82,7 @@ const Dashboard = ({ itemsArray }: DashboardProps) => {
                 <div className="w-[25px] h-1 bg-primary rounded-[2px] shadow-[0px_0px_5px_1px_rgba(0,0,0,0.75)]"></div>
               </div>
             </div>
-            <p className="text-center font-light text-sm text-white mb-0 text-shadow-[0px_1px_5px_rgb(0,0,0)]">
+            <p className="text-center font-light text-[20px] text-white mb-0 text-shadow-[0px_1px_5px_rgb(0,0,0)]">
               {activeItem?.description ?? "N/A"}
             </p>
           </div>
@@ -92,7 +92,7 @@ const Dashboard = ({ itemsArray }: DashboardProps) => {
         <div className="flex justify-center items-center">
           <div className="flex items-center justify-end w-[80px] h-8 bg-[linear-gradient(to_right,rgba(var(--primary-rgb),0)_0%,rgba(var(--primary-rgb),0.5)_20%,rgba(var(--primary-rgb),1)_70%,rgba(var(--primary-rgb),1)_100%)]">
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/ahmad.ch97?igsh=MW96ajQzcHM5OXdkYQ=="
               target="blank"
               className="hover:scale-[1.1] transition-all duration-300"
             >
@@ -105,7 +105,7 @@ const Dashboard = ({ itemsArray }: DashboardProps) => {
           />
           <div className="flex items-center justify-start w-[80px] h-8 bg-[linear-gradient(to_left,rgba(var(--primary-rgb),0)_0%,rgba(var(--primary-rgb),0.5)_20%,rgba(var(--primary-rgb),1)_70%,rgba(var(--primary-rgb),1)_100%)]">
             <a
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/ahmad-chabayta-53a041111?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="blank"
               className="hover:scale-[1.1] transition-all duration-300"
             >
@@ -113,8 +113,12 @@ const Dashboard = ({ itemsArray }: DashboardProps) => {
             </a>
           </div>
         </div>
-        <h5 className="text-center text-white text-md mt-2">Ahmad Chabayta</h5>
-        <p className="text-center text-white text-sm">Design Engineer</p>
+        <h5 className="text-center text-white text-[20px] mt-2">
+          Ahmad Chabayta
+        </h5>
+        <p className="text-center text-white text-[18px]">
+          Designer - Engineer
+        </p>
       </section>
     </section>
   );
