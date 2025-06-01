@@ -24,28 +24,26 @@ body * {
 }
 
 /* video slider styles */
-.video-slider.css-1e45yg4-MuiSlider-root {
+.video-slider.MuiSlider-root {
   @apply text-primary;
 }
 
-.video-slider .css-1xcmt9q-MuiSlider-thumb:hover,
-.video-slider .css-1xcmt9q-MuiSlider-thumb.Mui-focusVisible {
+.video-slider .MuiSlider-thumb:hover,
+.video-slider .MuiSlider-thumb.Mui-focusVisible {
   @apply shadow-[0px_0px_0px_8px_rgba(var(--primary-rgb),0.16)];
 }
 
-.video-slider .css-1qb795b-MuiSlider-markLabel,
-.video-slider .css-swtyag-MuiSlider-markLabel {
+.video-slider .MuiSlider-markLabel {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   @apply text-sm text-white text-shadow-[0px_1px_5px_rgb(0,0,0)];
 }
 
-.video-slider .css-swtyag-MuiSlider-markLabel {
+.video-slider .MuiSlider-markLabel.MuiSlider-markLabelActive {
   @apply font-bold;
 }
 
-.video-slider .css-16kozi8-MuiSlider-mark,
-.video-slider .css-lq5hqx-MuiSlider-mark {
+.video-slider .MuiSlider-mark {
   @apply w-2 h-2 rounded-full bg-white opacity-[.8];
   transform: translate(-4px, -50%);
 }

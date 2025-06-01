@@ -11,7 +11,7 @@ const App = () => {
     <main className="main-body-container">
       <Router>
         <Navbar itemsArray={navList.itemsArray} />
-        <section className="pt-12 pb-6 px-10">
+        <section className="pt-12 pb-4 px-10">
           <Routes>
             <Route
               path="/"
