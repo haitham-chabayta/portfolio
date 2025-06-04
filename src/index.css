@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 [data-theme="default"] {
-  --color-primary: #d4e05e;
-  --primary-rgb: 212, 224, 94;
+  --color-primary: #e0d45e;
+  --primary-rgb: 224, 212, 94;
 }
 
 @theme {

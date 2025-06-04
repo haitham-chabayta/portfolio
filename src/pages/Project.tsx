@@ -15,9 +15,9 @@ const Project = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [step, setStep] = useState(minValue);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const video = videoRef.current;
 
   useEffect(() => {
+    const video = videoRef.current;
     if (minValue !== 0 && video) {
       video.play().catch((err) => console.error("Video play failed:", err));
 
@@ -28,6 +28,7 @@ const Project = () => {
   }, []);
 
   const handleStepChange = (_event: Event, newStep: number) => {
+    const video = videoRef.current;
     const prevStep = step;
     setStep(newStep);
     if (!video || !projectItem?.videoMarks) return;
