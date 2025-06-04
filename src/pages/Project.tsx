@@ -55,6 +55,19 @@ const Project = () => {
     }, (newStep - startTime) * 1000);
   };
 
+  function hexToRgba(hex: string, alpha: number): string {
+    let c = hex.replace("#", "");
+    if (c.length === 3)
+      c = c
+        .split("")
+        .map((ch) => ch + ch)
+        .join("");
+    const r = parseInt(c.substring(0, 2), 16);
+    const g = parseInt(c.substring(2, 4), 16);
+    const b = parseInt(c.substring(4, 6), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  }
+
   return (
     <section>
       <h1 className="text-4xl font-bold mb-12 text-white text-shadow-[0px_1px_5px_rgb(0,0,0)]">
@@ -79,6 +92,30 @@ const Project = () => {
           step={null}
           onChange={handleStepChange}
           marks={projectItem?.videoMarks}
+          sx={{
+            color: projectItem?.sliderColor ?? "var(--color-primary)", // Changes the main color of the track, thumb, etc.
+            "& .MuiSlider-thumb": {
+              backgroundColor:
+                projectItem?.sliderColor ?? "var(--color-primary)",
+            },
+            "& .MuiSlider-thumb:hover, & .MuiSlider-thumb.MuiSlider-thumb.Mui-focusVisible, & .MuiSlider-thumb.MuiSlider-thumb.Mui-active":
+              {
+                boxShadow:
+                  "0px 0px 0px 8px " +
+                  (projectItem?.sliderColor
+                    ? hexToRgba(projectItem?.sliderColor, 0.16)
+                    : "rgba(var(--primary-rgb), 0.16)"),
+              },
+            "& .MuiSlider-track": {
+              backgroundColor:
+                projectItem?.sliderColor ?? "var(--color-primary)",
+              borderColor: projectItem?.sliderColor ?? "var(--color-primary)",
+            },
+            "& .MuiSlider-rail": {
+              backgroundColor:
+                projectItem?.sliderColor ?? "var(--color-primary)",
+            },
+          }}
         />
       </div>
     </section>

@@ -24,13 +24,9 @@ body * {
 }
 
 /* video slider styles */
-.video-slider.MuiSlider-root {
-  @apply text-primary;
-}
-
 .video-slider .MuiSlider-thumb:hover,
 .video-slider .MuiSlider-thumb.Mui-focusVisible {
-  @apply shadow-[0px_0px_0px_8px_rgba(var(--primary-rgb),0.16)];
+  /* @apply shadow-[0px_0px_0px_8px_rgba(var(--primary-rgb),0.16)]; */
 }
 
 .video-slider .MuiSlider-markLabel {

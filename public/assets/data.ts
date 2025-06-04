@@ -6,6 +6,7 @@ type ProjectProps = {
   title: string;
   videoSrc?: string;
   videoMarks: { value: number; label: string }[];
+  sliderColor?: string; // Only in hexa code
 };
 
 export const navList: NavbarProps = {
@@ -72,6 +73,7 @@ export const projectsList: ProjectProps[] = [
       { value: 53, label: "Assembly" },
       { value: 55, label: "GAD" },
     ],
+    sliderColor: "#fc4444",
   },
   {
     id: 2,
@@ -83,6 +85,7 @@ export const projectsList: ProjectProps[] = [
       { value: 8, label: "Inside View 2" },
       { value: 9.5, label: "Outside View" },
     ],
+    sliderColor: "#b644fc",
   },
   {
     id: 3,
@@ -112,6 +115,7 @@ export const projectsList: ProjectProps[] = [
       { value: 61, label: "Mounting" },
       { value: 65, label: "Final view" },
     ],
+    sliderColor: "#42a1ff",
   },
   {
     id: 5,
