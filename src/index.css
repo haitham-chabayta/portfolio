@@ -24,11 +24,6 @@ body * {
 }
 
 /* video slider styles */
-.video-slider .MuiSlider-thumb:hover,
-.video-slider .MuiSlider-thumb.Mui-focusVisible {
-  /* @apply shadow-[0px_0px_0px_8px_rgba(var(--primary-rgb),0.16)]; */
-}
-
 .video-slider .MuiSlider-markLabel {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
