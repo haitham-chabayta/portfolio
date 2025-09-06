@@ -28,6 +28,9 @@ const Project = () => {
   }, []);
 
   const handleStepChange = (_event: Event, newStep: number) => {
+    const stepThumbEl = document.querySelector<HTMLElement>(".MuiSlider-thumb");
+    const sliderTrackEl =
+      document.querySelector<HTMLElement>(".MuiSlider-track");
     const video = videoRef.current;
     const prevStep = step;
     setStep(newStep);
@@ -47,6 +50,19 @@ const Project = () => {
       startTime = previousMark?.value ?? prevStep;
     }
     video.currentTime = startTime;
+
+    let videoPlayTime = newStep - startTime;
+
+    if (stepThumbEl && sliderTrackEl) {
+      stepThumbEl.style.transition =
+        "box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,bottom 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, left " +
+        videoPlayTime +
+        "s";
+      sliderTrackEl.style.transition =
+        "left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,width 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,bottom 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,height 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, width " +
+        videoPlayTime +
+        "s";
+    }
 
     video.play().catch((err) => console.error("Video play failed:", err));
 

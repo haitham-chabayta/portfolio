@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin } from "react-feather";
+import ImageWithSkeleton from "../components/ImageWithSkeleton";
 
 type ItemProps = {
   id: number;
@@ -17,6 +18,7 @@ const Dashboard = ({ itemsArray }: DashboardProps) => {
   const [activeItem, setActiveItem] = useState<ItemProps | null>(null);
   const [showInfo, setShowInfo] = useState<boolean>(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [loaded, setLoaded] = useState(false);
 
   const rotationMap = {
     0: "rotate-[-8deg] mt-12",
@@ -37,7 +39,6 @@ const Dashboard = ({ itemsArray }: DashboardProps) => {
                   clearTimeout(timeoutRef.current);
                   timeoutRef.current = null;
                 }
-
                 setActiveItem(item);
                 setShowInfo(true);
               }}
@@ -57,7 +58,7 @@ const Dashboard = ({ itemsArray }: DashboardProps) => {
                   : "")
               }
             >
-              <img src={item.image} alt={item.title} />
+              <ImageWithSkeleton src={item.image} alt={item.title} />
             </Link>
           ))}
         </div>
