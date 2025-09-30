@@ -36,7 +36,7 @@ export const dashboardData: DashboardProps = {
     },
     {
       id: 3,
-      title: "ORGAN-ON-CHIP MULTIWELL PLATE",
+      title: "ORGAN-ON-CHIP MULTIWELL PLATE SYSTEM",
       description:
         "Design of an Organ-on-Chip multiwell plate to culture 3D cell microtissues and provide mechanical stimuli",
       image: "/assets/images/dashboard-cards/ooc-card.png",
@@ -89,16 +89,19 @@ export const projectsList: ProjectProps[] = [
   },
   {
     id: 3,
-    title: "Drive controller showcase",
-    videoSrc: "/assets/videos/driving_controller_showcase.mp4",
+    title: "ORGAN-ON-CHIP MULTIWELL PLATE SYSTEM",
+    videoSrc: "/assets/videos/OOC_complete_ 300925.mov",
     videoMarks: [
-      { value: 3, label: "" },
-      { value: 14, label: "Features 1" },
-      { value: 21, label: "Features 2" },
-      { value: 36, label: "Inside look" },
-      { value: 45, label: "Components" },
-      { value: 56, label: "Assembly" },
-    ],
+      { value: 0.2, label: "Showcase" },
+      { value: 4.2, label: "Sub assemblies" },
+      { value: 9.2, label: "ValveRamp" },
+      { value: 12.2, label: "OOC features" },
+      { value: 16, label: "OOC layers" },
+      { value: 22.5, label: "Pipetting" },
+      { value: 33, label: "Pneumatic path" },
+      { value: 49, label: "Mechanical actuation" },
+ ],
+    sliderColor: "#ff8724ff",
   },
   {
     id: 4,
