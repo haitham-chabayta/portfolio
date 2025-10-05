@@ -11,10 +11,9 @@ type ProjectProps = {
 
 export const navList: NavbarProps = {
   itemsArray: [
-    { id: 1, title: "Home", path: "/" },
-    { id: 2, title: "Product Design", path: "/" },
-    { id: 3, title: "DIY", path: "/" },
-    { id: 4, title: "Resume", path: "/" },
+    { id: 1, title: "Product Design", path: "/" },
+    { id: 2, title: "DIY", path: "/DIY" },
+    { id: 3, title: "Resume", path: "/Resume" },
   ],
 };
 

@@ -15,15 +15,23 @@ const Project = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [step, setStep] = useState(minValue);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (minValue !== 0 && video) {
-      video.play().catch((err) => console.error("Video play failed:", err));
+    if (video) {
+      const handleCanPlay = () => setIsLoading(false);
+      video.addEventListener("canplay", handleCanPlay);
+      if (minValue !== 0) {
+        video.play().catch((err) => console.error("Video play failed:", err));
 
-      timeoutRef.current = setTimeout(() => {
-        video.pause();
-      }, (minValue - 0) * 1000);
+        timeoutRef.current = setTimeout(() => {
+          video.pause();
+        }, (minValue - 0) * 1000);
+      }
+      return () => {
+        video.removeEventListener("canplay", handleCanPlay);
+      };
     }
   }, []);
 
@@ -89,14 +97,20 @@ const Project = () => {
       <h1 className="text-4xl font-bold mb-12 text-white text-shadow-[0px_1px_5px_rgb(0,0,0)]">
         {projectItem?.title}
       </h1>
-      <video
-        ref={videoRef}
-        controls={false}
-        className="max-w-[1000px] w-full mx-auto mb-13 rounded-lg shadow-[0px_0px_20px_4px_rgb(0,0,0)]"
-      >
-        <source src={projectItem?.videoSrc} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <div className="relative max-w-[1000px] w-full aspec-[16/9] mx-auto mb-13 rounded-lg shadow-[0px_0px_20px_4px_rgb(0,0,0)]">
+        {isLoading && (
+          <div className="skeleton z-[2] rounded-lg w-full h-full absolute left-0 top-0 bg-[length:200%_100%] bg-gradient-to-r from-[#e0e0e0] via-[#dbdbdb] to-[#dbdbdb] transition-opacity duration-300 pointer-events-noneskeleton rounded-md absolute inset-0 bg-[length:200%_100%] bg-gradient-to-r from-[#e0e0e0] via-[#dbdbdb] to-[#dbdbdb] pointer-events-none" />
+        )}
+        <video
+          ref={videoRef}
+          controls={false}
+          preload="auto"
+          className="w-full rounded-lg h-full"
+        >
+          <source src={projectItem?.videoSrc} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
       <div className="w-full px-12">
         <Slider
           aria-label="Video marks"

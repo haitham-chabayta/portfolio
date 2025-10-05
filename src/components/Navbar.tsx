@@ -12,7 +12,7 @@ export type NavbarProps = {
 const Navbar = ({ itemsArray }: NavbarProps) => {
   return (
     <nav>
-      <ul className="flex justify-around pb-1 bg-[rgba(0,0,0,0.6)] pt-10 px-4">
+      <ul className="flex justify-around pb-1 bg-[rgba(0,0,0,0.6)] pt-10 ps-4 pe-[7.5rem]">
         {itemsArray.map((item) => (
           <li key={item.id} className="px-2">
             <Link

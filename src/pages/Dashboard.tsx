@@ -52,7 +52,7 @@ const Dashboard = ({ itemsArray }: DashboardProps) => {
               key={item.id}
               className={
                 rotationMap[indx] +
-                " shadow-[0px_8px_5px_0px_rgba(0,0,0,0.75)] hover:scale-[1.1] hover:contrast-[1.15] hover:saturate-[1.15]  transition-all duration-300" +
+                " shadow-[0px_8px_5px_0px_rgba(0,0,0,0.75)] grow aspect-[9/16] hover:scale-[1.1] hover:contrast-[1.15] hover:saturate-[1.15]  transition-all duration-300" +
                 (activeItem && activeItem.id !== item.id && showInfo
                   ? " grayscale-100"
                   : "")
@@ -100,10 +100,12 @@ const Dashboard = ({ itemsArray }: DashboardProps) => {
               <Instagram className="text-black me-5" />
             </a>
           </div>
-          <img
-            className="w-28 h-28 rounded-full object-cover object-center border-3 -mx-1 z-[2] border-gray-500"
-            src="/assets/images/personal/profile-pic.jpg"
-          />
+          <div className="w-28 h-28 rounded-full border-3 -mx-1 z-[2] border-gray-500 flex">
+            <img
+              className="w-full h-full rounded-full object-cover object-center"
+              src="/assets/images/personal/profile-pic.jpg"
+            />
+          </div>
           <div className="flex items-center justify-start w-[80px] h-8 bg-[linear-gradient(to_left,rgba(var(--primary-rgb),0)_0%,rgba(var(--primary-rgb),0.5)_20%,rgba(var(--primary-rgb),1)_70%,rgba(var(--primary-rgb),1)_100%)]">
             <a
               href="https://www.linkedin.com/in/ahmad-chabayta-53a041111?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
