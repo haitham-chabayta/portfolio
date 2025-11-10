@@ -1,5 +1,6 @@
 import { NavbarProps } from "../../src/components/Navbar";
 import { DashboardProps } from "../../src/pages/Dashboard";
+import { ResumeProps } from "react-cv";
 
 type ProjectProps = {
   id: number;
@@ -99,7 +100,7 @@ export const projectsList: ProjectProps[] = [
       { value: 22.5, label: "Pipetting" },
       { value: 33, label: "Pneumatic path" },
       { value: 49, label: "Mechanical actuation" },
- ],
+    ],
     sliderColor: "#ff8724ff",
   },
   {
@@ -136,3 +137,30 @@ export const projectsList: ProjectProps[] = [
     ],
   },
 ];
+
+export const resumeData: ResumeProps = {
+  personalData: {
+    name: "S. Berkay Aydin",
+    title: "Senior Software Developer",
+    image: "/assets/images/personal/profile-pic.png",
+    contacts: [
+      { type: "email", value: "john@example.com" },
+      { type: "phone", value: "+00 (123) 456 78 90" },
+      { type: "location", value: "New York" },
+      { type: "website", value: "example.com" },
+      { type: "linkedin", value: "linkedin.com/in/sbaydin" },
+      { type: "twitter", value: "twitter.com/sbayd" },
+      { type: "github", value: "github.com/sbayd" },
+    ],
+  },
+  sections: [
+    {
+      type: "text",
+      title: "Career Profile",
+      content:
+        "When I was a child, I always wanted to be a developer..then this hapened **You can use markdown here**",
+      icon: "usertie",
+    },
+  ],
+  branding: false,
+};

@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Resume from "./pages/Resume";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Dashboard";
 import { dashboardData } from "../public/assets/data";
 import { navList } from "../public/assets/data";
 import Project from "./pages/Project";
 import DIY from "./pages/DIY";
-import Resume from "./pages/Resume";
+import "./index.css";
 
 const App = () => {
   return (
@@ -20,12 +21,7 @@ const App = () => {
             />
             <Route path="/project/:id" element={<Project />} />
             <Route path="/DIY" element={<DIY />} />
-            <Route
-              path="/Resume"
-              element={
-                <Resume width={700} file="/assets/documents/resume.pdf" />
-              }
-            />
+            <Route path="/Resume" element={<Resume />} />
           </Routes>
         </section>
       </Router>
