@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Resume from "./pages/Resume";
+import Resume from "./pages/Resume/Resume";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Dashboard";
 import { dashboardData } from "../public/assets/data";
