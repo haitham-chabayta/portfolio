@@ -51,3 +51,75 @@ body * {
     background-position: 200% 0;
   }
 }
+
+/* ---------- Engineering page animations ---------- */
+@theme {
+  --animate-eng-fade-up: eng-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-eng-fade-in: eng-fade-in 0.7s ease-out both;
+  --animate-eng-slide-in-next: eng-slide-in-next 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-eng-slide-in-prev: eng-slide-in-prev 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-eng-slide-out-next: eng-slide-out-next 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-eng-slide-out-prev: eng-slide-out-prev 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-eng-caption: eng-caption 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+  --animate-eng-kenburns: eng-kenburns 9s ease-out both;
+  --animate-eng-progress: eng-progress 6s linear both;
+}
+
+@keyframes eng-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes eng-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes eng-slide-in-next {
+  from { opacity: 0; transform: translateX(8%) scale(1.03); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes eng-slide-in-prev {
+  from { opacity: 0; transform: translateX(-8%) scale(1.03); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes eng-slide-out-next {
+  from { opacity: 1; transform: translateX(0) scale(1); }
+  to { opacity: 0; transform: translateX(-8%) scale(0.97); }
+}
+
+@keyframes eng-slide-out-prev {
+  from { opacity: 1; transform: translateX(0) scale(1); }
+  to { opacity: 0; transform: translateX(8%) scale(0.97); }
+}
+
+@keyframes eng-caption {
+  from { opacity: 0; transform: translateY(24px); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes eng-kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+
+@keyframes eng-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.eng-no-scrollbar {
+  scrollbar-width: none;
+}
+.eng-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="animate-eng-"]:not(.animate-eng-progress) {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+  }
+}

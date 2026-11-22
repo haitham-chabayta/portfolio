@@ -1,7 +1,8 @@
 import { FC, ForwardRefExoticComponent, SVGProps } from "react";
 import { NavbarProps } from "../../src/components/Navbar";
 import { DashboardProps } from "../../src/pages/Dashboard";
-import { IconProps } from "react-feather";
+import { EngineeringProps } from "../../src/pages/Engineering";
+import { Activity, Box, IconProps, Settings, Tool } from "react-feather";
 import GithubIcon from "../../src/components/Icon/GithubIcon";
 import InstagramIcon from "../../src/components/Icon/InstagramIcon";
 import LinkedInIcon from "../../src/components/Icon/LinkedInIcon";
@@ -29,8 +30,8 @@ type ResumeProps = {
   heroData: Hero;
   aboutData: About;
   skills: SkillGroup[];
-  education: TimelineItem[];
-  experience: TimelineItem[];
+  education: TimelineItemProps[];
+  experience: TimelineItemProps[];
   socialLinks: Social[];
 };
 
@@ -62,7 +63,7 @@ export interface SkillGroup {
   skills: Skill[];
 }
 
-export interface TimelineItem {
+export interface TimelineItemProps {
   date: string;
   location: string;
   title: string;
@@ -77,9 +78,165 @@ export interface Social {
 
 export const navList: NavbarProps = {
   itemsArray: [
-    { id: 1, title: "Product Design", path: "/" },
+    {
+      id: 1,
+      title: "Product Design",
+      path: "/",
+      activePrefixes: ["/project/"],
+    },
     { id: 2, title: "DIY", path: "/DIY" },
-    { id: 3, title: "Resume", path: "/Resume" },
+    { id: 3, title: "Engineering", path: "/Engineering" },
+    { id: 4, title: "Resume", path: "/Resume" },
+  ],
+};
+
+// Dummy data for the Engineering page — swap images/text for real content.
+export const engineeringData: EngineeringProps = {
+  categories: [
+    {
+      id: 1,
+      title: "Mechanical Design",
+      subtitle: "CAD modelling, mechanisms & tolerancing",
+      Icon: Settings,
+      slides: [
+        {
+          id: 101,
+          title: "Triplex Pump Crankshaft",
+          description:
+            "Three-throw crankshaft designed for balanced plunger loading, with bearing seats toleranced for long service life under high pressure.",
+          image: "/assets/images/dashboard-cards/pump-card.png",
+          tags: ["SolidWorks", "GD&T", "Bearings"],
+        },
+        {
+          id: 102,
+          title: "900° Thumb Steering Mechanism",
+          description:
+            "Compact gear-train translating thumb input into a full 900° steering range while keeping the controller handheld.",
+          image: "/assets/images/dashboard-cards/controller-card.png",
+          tags: ["Gear Train", "Ergonomics"],
+        },
+        {
+          id: 103,
+          title: "Multiwell Plate Valve Ramp",
+          description:
+            "Cam-driven valve ramp that sequences pneumatic channels across the organ-on-chip plate with a single linear actuator.",
+          image: "/assets/images/dashboard-cards/ooc-card.png",
+          tags: ["Pneumatics", "Cam Design"],
+        },
+        {
+          id: 104,
+          title: "Sanitizer Loading Tray",
+          description:
+            "Sliding tray with soft-close rails and rounded edges, sized for kindergarten toys and safe for little hands.",
+          image: "/assets/images/dashboard-cards/sanitizer-card.png",
+          tags: ["Sheet Metal", "Safety"],
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "Prototyping",
+      subtitle: "3D printing, iteration & testing rigs",
+      Icon: Box,
+      slides: [
+        {
+          id: 201,
+          title: "Controller Shell — Rev. C",
+          description:
+            "Third FDM iteration of the controller housing, refined for grip comfort and snap-fit assembly without screws.",
+          image: "/assets/images/dashboard-cards/controller-card.png",
+          tags: ["FDM", "Snap-fits"],
+        },
+        {
+          id: 202,
+          title: "Showcase Room Scale Model",
+          description:
+            "1:10 laser-cut wood and acrylic mock-up used to validate mirror angles and lighting before full-size build.",
+          image: "/assets/images/dashboard-cards/olympics-card.png",
+          tags: ["Laser Cutting", "Lighting"],
+        },
+        {
+          id: 203,
+          title: "Microfluidic Layer Stack",
+          description:
+            "Resin-printed test layers for checking channel sealing and alignment pins across the chip stack.",
+          image: "/assets/images/dashboard-cards/ooc-card.png",
+          tags: ["SLA", "Microfluidics"],
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: "Simulation",
+      subtitle: "FEA, CFD & motion studies",
+      Icon: Activity,
+      slides: [
+        {
+          id: 301,
+          title: "Pump Head Stress Analysis",
+          description:
+            "Static FEA of the pump head under peak discharge pressure, used to optimise wall thickness and fillet radii.",
+          image: "/assets/images/dashboard-cards/pump-card.png",
+          tags: ["FEA", "Safety Factor"],
+        },
+        {
+          id: 302,
+          title: "Sanitizer Airflow Study",
+          description:
+            "CFD study of air circulation in the drying chamber to remove dead zones and cut cycle time.",
+          image: "/assets/images/dashboard-cards/sanitizer-card.png",
+          tags: ["CFD", "Thermal"],
+        },
+        {
+          id: 303,
+          title: "Trigger Return Spring",
+          description:
+            "Motion study tuning spring preload so acceleration and brake triggers feel progressive and return reliably.",
+          image: "/assets/images/dashboard-cards/controller-card.png",
+          tags: ["Motion Study", "Springs"],
+        },
+        {
+          id: 304,
+          title: "Pneumatic Path Pressure Drop",
+          description:
+            "Flow simulation through the chip's pneumatic path to balance actuation pressure across all wells.",
+          image: "/assets/images/dashboard-cards/ooc-card.png",
+          tags: ["Flow", "Pneumatics"],
+        },
+      ],
+    },
+    {
+      id: 4,
+      title: "Manufacturing",
+      subtitle: "DFM, assembly & production drawings",
+      Icon: Tool,
+      slides: [
+        {
+          id: 401,
+          title: "Pump Baseplate & Mounting",
+          description:
+            "Welded baseplate with integrated leakage recovery and machined mounting pads for motor alignment.",
+          image: "/assets/images/dashboard-cards/pump-card.png",
+          tags: ["Welding", "Machining"],
+        },
+        {
+          id: 402,
+          title: "Showcase Room Joinery",
+          description:
+            "Wooden interior panels designed for flat-pack transport and tool-free assembly on site.",
+          image: "/assets/images/dashboard-cards/olympics-card.png",
+          tags: ["Woodwork", "Flat-pack"],
+        },
+        {
+          id: 403,
+          title: "Controller Assembly Line-up",
+          description:
+            "Exploded assembly drawing and BOM preparing the controller for small-batch injection moulding.",
+          image: "/assets/images/dashboard-cards/controller-card.png",
+          tags: ["DFM", "BOM", "Injection Moulding"],
+        },
+      ],
+    },
   ],
 };
 

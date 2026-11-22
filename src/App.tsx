@@ -3,9 +3,10 @@ import Resume from "./pages/Resume/Resume";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Dashboard";
 import { dashboardData } from "../public/assets/data";
-import { navList } from "../public/assets/data";
+import { navList, engineeringData } from "../public/assets/data";
 import Project from "./pages/Project";
 import DIY from "./pages/DIY";
+import Engineering from "./pages/Engineering";
 import "./index.css";
 
 const App = () => {
@@ -21,6 +22,10 @@ const App = () => {
             />
             <Route path="/project/:id" element={<Project />} />
             <Route path="/DIY" element={<DIY />} />
+            <Route
+              path="/Engineering"
+              element={<Engineering categories={engineeringData.categories} />}
+            />
             <Route path="/Resume" element={<Resume />} />
           </Routes>
         </section>
